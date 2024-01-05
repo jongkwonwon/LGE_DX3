@@ -242,11 +242,11 @@ class MyApp(QWidget):
 
     def change_model(self, x):   # *** 오프라인 작동을 위한 수정 필요
         self.model_type = self.comboBox.currentText()
-        model_path = os.path.join('./Data_lake', self.model_type)
-        self.thread_YOLO.model = torch.load(model_path)
+        #model_path = os.path.join('./Data_lake', self.model_type) ##GPT
+        #self.thread_YOLO.model = torch.load(model_path) ##GPT
+        #self.thread_YOLO.classes = self.thread_YOLO.model.names  ##GPT
+        self.thread_YOLO.model = torch.hub.load('ultralytics/yolov5', 'custom', path="./Data_lake/%s" % self.model_type)
         self.thread_YOLO.classes = self.thread_YOLO.model.names
-        #self.thread_YOLO.model = torch.hub.load('ultralytics/yolov5', 'custom', path="./Data_lake/%s" % self.model_type)
-        #self.thread_YOLO.classes = self.thread_YOLO.model.names
         print('Change model to %s' % x)
         # self.statistic_msg('Change model to %s' % x)
 
