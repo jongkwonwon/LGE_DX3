@@ -200,7 +200,7 @@ class MyApp(QWidget):
 
         print('start...')
 
-    def showOKNG(self):   ##NG OK NG 값 출력 *** -> 수정 필요
+    def showOKNG(self):   ##NG OK NG 값 출력 *** -> 수정 필요(NG가 나올때 알람음 등 필요)
         global okNG
         print('showOKNG:', okNG)
         if okNG == 'NG':  ##NG 출력 조건
@@ -242,8 +242,11 @@ class MyApp(QWidget):
 
     def change_model(self, x):   # *** 오프라인 작동을 위한 수정 필요
         self.model_type = self.comboBox.currentText()
-        self.thread_YOLO.model = torch.hub.load('ultralytics/yolov5', 'custom', path="./Data_lake/%s" % self.model_type)
+        model_path = os.path.join('./Data_lake', self.model_type)
+        self.thread_YOLO.model = torch.load(model_path)
         self.thread_YOLO.classes = self.thread_YOLO.model.names
+        #self.thread_YOLO.model = torch.hub.load('ultralytics/yolov5', 'custom', path="./Data_lake/%s" % self.model_type)
+        #self.thread_YOLO.classes = self.thread_YOLO.model.names
         print('Change model to %s' % x)
         # self.statistic_msg('Change model to %s' % x)
 
