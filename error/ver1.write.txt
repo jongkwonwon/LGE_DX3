@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "UI_ver10.5_75QNED99.py", line 272, in <module>
+    ex = MyApp()
+  File "UI_ver10.5_75QNED99.py", line 180, in __init__
+    self.video_thread_YOLO()
+  File "UI_ver10.5_75QNED99.py", line 184, in video_thread_YOLO
+    self.thread_YOLO = ObjectDetection()
+  File "UI_ver10.5_75QNED99.py", line 24, in __init__
+    self.model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path)
+  File "torch\hub.py", line 563, in load
+    repo_or_dir = _get_cache_or_reload(repo_or_dir, force_reload, trust_repo, "load",
+  File "torch\hub.py", line 226, in _get_cache_or_reload
+    sys.stderr.write(f'Using cache found in {repo_dir}\n')
+AttributeError: 'NoneType' object has no attribute 'write'
