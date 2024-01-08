@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "C:\Users\pcuser/.cache\torch\hub\ultralytics_yolov5_master\models\common.py", line 29, in <module>
+    import ultralytics
+ModuleNotFoundError: No module named 'ultralytics'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "UI_ver10.6_Test.py", line 261, in <module>
+    ex = MyApp()
+  File "UI_ver10.6_Test.py", line 173, in __init__
+    self.video_thread_YOLO()
+  File "UI_ver10.6_Test.py", line 177, in video_thread_YOLO
+    self.thread_YOLO = ObjectDetection()
+  File "UI_ver10.6_Test.py", line 20, in __init__
+    self.model = torch.hub.load('ultralytics/yolov5', 'custom', path='./Data_lake/75QNED90.pt')
+  File "torch\hub.py", line 568, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "torch\hub.py", line 597, in _load_local
+    model = entry(*args, **kwargs)
+  File "C:\Users\pcuser/.cache\torch\hub\ultralytics_yolov5_master\hubconf.py", line 83, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "C:\Users\pcuser/.cache\torch\hub\ultralytics_yolov5_master\hubconf.py", line 33, in _create
+    from models.common import AutoShape, DetectMultiBackend
+  File "C:\Users\pcuser/.cache\torch\hub\ultralytics_yolov5_master\models\common.py", line 36, in <module>
+    import ultralytics
+ModuleNotFoundError: No module named 'ultralytics'
