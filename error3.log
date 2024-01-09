@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "UI_ver10.6_Test.py", line 273, in <module>
+    ex = MyApp()
+  File "UI_ver10.6_Test.py", line 181, in __init__
+    self.video_thread_YOLO()
+  File "UI_ver10.6_Test.py", line 185, in video_thread_YOLO
+    self.thread_YOLO = ObjectDetection()
+  File "UI_ver10.6_Test.py", line 27, in __init__
+    self.model = torch.hub.load('./yolov5', 'custom', path='./Data_lake/75QNED90.pt', source='local')
+  File "torch\hub.py", line 568, in load
+  File "torch\hub.py", line 597, in _load_local
+  File "C:\yolov5-master\./yolov5\hubconf.py", line 83, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "C:\yolov5-master\./yolov5\hubconf.py", line 33, in _create
+    from models.common import AutoShape, DetectMultiBackend
+  File "C:\yolov5-master\./yolov5\models\common.py", line 29, in <module>
+    import ultralytics
+  File "C:\yolov5-master\./yolov5\ultralytics\__init__.py", line 5, in <module>
+    from ultralytics.models import RTDETR, SAM, YOLO
+  File "C:\yolov5-master\./yolov5\ultralytics\models\__init__.py", line 3, in <module>
+    from .rtdetr import RTDETR
+  File "C:\yolov5-master\./yolov5\ultralytics\models\rtdetr\__init__.py", line 3, in <module>
+    from .model import RTDETR
+  File "C:\yolov5-master\./yolov5\ultralytics\models\rtdetr\model.py", line 10, in <module>
+    from ultralytics.engine.model import Model
+  File "C:\yolov5-master\./yolov5\ultralytics\engine\model.py", line 8, in <module>
+    from ultralytics.cfg import TASK2DATA, get_cfg, get_save_dir
+  File "C:\yolov5-master\./yolov5\ultralytics\cfg\__init__.py", line 10, in <module>
+    from ultralytics.utils import (ASSETS, DEFAULT_CFG, DEFAULT_CFG_DICT, DEFAULT_CFG_PATH, LOGGER, RANK, ROOT, RUNS_DIR,
+  File "C:\yolov5-master\./yolov5\ultralytics\utils\__init__.py", line 265, in <module>
+    LOGGER = set_logging(LOGGING_NAME, verbose=VERBOSE)  # define globally (used in train.py, val.py, predict.py, etc.)
+  File "C:\yolov5-master\./yolov5\ultralytics\utils\__init__.py", line 233, in set_logging
+    if WINDOWS and sys.stdout.encoding != 'utf-8':
+AttributeError: 'NoneType' object has no attribute 'encoding'
