@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QComboBox, QPushButto
 from PyQt5.QtGui import QPixmap
 import sys
 import cv2
+import io
 from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread, QRect, QCoreApplication, QTimer
 import numpy as np
 import torch
@@ -12,7 +13,9 @@ import os
 cameraNo = 0  # 전역변수 cameraNo, 기본값=0 으로 선언
 okNG = 'NA'  # 전역변수 양불판정, 기본값=NA 으로 선언
 
+default_encoding = 'utf-8'  # 기본 인코딩을 설정합니다.
 
+sys.stdout = io.TextIOWrapper(io.BytesIO(), encoding=default_encoding, errors='replace')
 class ObjectDetection(QThread):
     change_pixmap_signal_YOLO = pyqtSignal(np.ndarray)
 
