@@ -1,0 +1,25 @@
+import easyocr
+from PIL import Image
+ 
+# EasyOCR 리더 객체 생성 (여기서는 영어와 한국어를 지원)
+reader = easyocr.Reader(['en', 'ko'])  # 'en'은 영어, 'ko'는 한국어
+ 
+# 이미지 열기
+#image_path = 'D:/Core_error.jpg'  # 이미지 파일 경로
+image = Image.open(image_path)
+ 
+#bw_image = image.convert('L')
+ 
+# 이진화 (Thresholding)
+#threshold = 20  # 이 값을 조정하여 흰색과 검은색의 경계를 설정할 수 있습니다.
+#bw_image = bw_image.point(lambda x: 255 if x > threshold else 0, '1')
+ 
+#bw_image.save('D:/Core_error_bw.jpg')
+image_path = 'D:/test__.jpg'
+ 
+# OCR 수행
+results = reader.readtext(image_path)
+ 
+# 결과 출력
+for (bbox, text, prob) in results:
+    print(f"Detected text: {text} (Confidence: {prob:.2f})")
